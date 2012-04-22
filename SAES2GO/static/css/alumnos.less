@@ -1,0 +1,236 @@
+#dvPerfil{
+	margin-top: 30px;
+	margin-bottom: 100px;
+}
+
+#dvPerfil img {
+	width:100%;
+	height:130px;
+	background-color: #ccc;
+}
+
+
+#mainArticle{
+	width:1000px;
+	height: 100%;
+	background-color: #FFF;
+	  margin: 0 auto;
+	  margin-top: -30px;
+	  border: 1px solid #DDD;
+	  box-shadow: 0 0 10px 1px #333333;
+	  -moz-box-shadow: 0 0 10px 1px #333333;
+	  -webkit-box-shadow: 0 0 10px 1px #333333;
+	  -o-box-shadow: 0 0 10px 1px #333333;
+	  -moz-border-radius: 5px;
+	  -webkit-border-radius: 5px;
+	  border-radius: 5px;
+
+}
+
+ul{
+	list-style: none;
+	padding: 0;
+	cursor:pointer;
+}
+
+li{
+	padding-left: 10px;
+	color: #333;
+	height:40px;
+	line-height:40px;	
+	margin: 10px 0;	
+	border-left: 1px solid #BB3B3F ;
+	cursor:pointer;	
+	
+}
+
+li.sobreMenu{			
+	background-color:#BB3B3F ;
+	color: #fff;
+		
+}
+
+.leftPane{
+	height:100%;
+	width:200px;
+	padding: 20px;
+	border-right: 1px solid #ccc ;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.rightPane{
+	height:100%;
+	width:700px;
+	padding: 20px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+.listaTablas(@anchoTabla,@altoFila,@anchoColumna){
+	width:@anchoTabla;
+	vertical-align: top;
+
+	table{
+		font-size:12px;
+		width:@anchoTabla;
+		margin-top: 10px;
+
+		tr{
+			height:@altoFila;
+
+			td{
+				text-align: center;
+				width:@anchoColumna;
+				
+			}
+		}
+
+		thead tr:first-child{
+			cursor: pointer;
+			background-color: #666;
+			color: #fff;
+			height:40px;
+			font-size: 14px;
+		}
+
+		&:first-child{
+			margin-top: 20px;
+
+			thead tr:last-child{
+				display: table-row;
+			}			
+
+			tbody{
+				display:table-row-group;
+
+			}
+		}
+
+		tbody,thead tr:last-child{
+			display: none;
+		}
+
+	}		
+}
+
+#kardex{
+
+	.listaTablas(700px,30px,auto);
+
+	table tr td:first-child{
+		width:250px;
+		text-align: left;
+	}
+
+}
+
+
+
+
+
+/****************************HORARIOS**********************/
+
+
+#dvTipoHorario{
+
+	background-color: #666;
+	color: #fff;
+	height:40px;
+	line-height:40px;
+	text-align: center;
+}
+
+#dvHorarios{
+	display: inline-block;
+
+	//.listaTablas(380px,30px,60px);
+	table{
+		font-size:12px;
+		width:380px;
+		margin-top: 10px;
+
+		tr{
+			height:30px;
+
+			td{
+				text-align: center;
+				width:60px;
+				
+			}
+		}
+
+	}
+
+	table tr td:first-child{
+		width:80px;
+		text-align: left;
+		background-color: #DDD;
+	}
+}
+
+#detalleHorario{
+	display: inline-block;	
+	width:150px;
+}
+
+
+#tiraMaterias{
+	display: inline-block;	
+	list-style: none;
+	width:300px;
+	vertical-align:top;
+	margin-top: 40px;
+
+	li{	
+		display: inline-block;
+		margin: auto 0;
+		margin-right:20px;
+		border:none;
+		font-size:12px;
+		height:30px;
+
+		span{
+			width:30px;
+			height:12px;
+			margin: auto 0;
+			margin-right: 10px;
+			display: inline-block;
+			background-color: #DDD;
+		}
+	}
+
+}
+
+
+/***************************************************************/
+
+.titulo{
+	font-size: 18px;
+	padding: 20px 0px;
+}
+
+h1{
+	margin-top: 25px;
+	font-size: 28px;
+	color: #C83F44;
+
+}
+
+.column{
+	display:inline-block;
+	width:300px;
+}
+
+#Concentrados div.column{
+	font-size: 14px;
+	color: #333;
+	padding: 10px 0;
+
+}
+
+
+#Concentrados div.column span{
+	font-weight: bold;
+}

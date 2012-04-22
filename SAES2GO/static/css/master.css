@@ -1,0 +1,149 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 0;
+}
+#frmLogIn,
+#frmSignIn {
+  height: 1200px;
+  padding: 80px;
+  position: relative;
+}
+#mainArticle {
+  height: 2400px;
+  width: 360px;
+  margin: 0 auto;
+  margin-top: -30px;
+  border: 1px solid #DDD;
+  background-color: #BB3B3F;
+  box-shadow: 0 0 10px 1px #333333;
+  -moz-box-shadow: 0 0 10px 1px #333333;
+  -webkit-box-shadow: 0 0 10px 1px #333333;
+  -o-box-shadow: 0 0 10px 1px #333333;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+  box-shadow: 0 0 7px 0 #ffffff;
+  -moz-box-shadow: 0 0 7px 0 #ffffff;
+  -webkit-box-shadow: 0 0 7px 0 #ffffff;
+  -o-box-shadow: 0 0 7px 0 #ffffff;
+  border: 1px solid #50B1FE;
+  outline: none;
+}
+select:focus {
+  box-shadow: 0 0 7px 0 #ffffff;
+  -moz-box-shadow: 0 0 7px 0 #ffffff;
+  -webkit-box-shadow: 0 0 7px 0 #ffffff;
+  -o-box-shadow: 0 0 7px 0 #ffffff;
+  border: 1px solid #50B1FE;
+  outline: none;
+}
+form input[type="text"],
+input[type="password"] {
+  width: 200px;
+  margin: 10px auto;
+  border: 1px solid #FFF;
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+form input[type="button"],
+form input[type="submit"] {
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 80px;
+  border: 1px solid #FFF;
+  font-size: 18px;
+  background-color: #FFF;
+}
+input[type="button"],
+input[type="submit"] {
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: middle;
+  margin: 0;
+  padding: 10px 15px;
+  line-height: 100%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: auto;
+  overflow: visible;
+  font-weight: normal;
+  font-size: 14px;
+  text-shadow: 0 1px 0 white;
+  color: #666;
+  text-decoration: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+  display: inline-block;
+  zoom: 1;
+  border: 1px solid #CCC;
+  background: #FCFCFC;
+  background: -moz-linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcfcfc), color-stop(100%, #e0e0e0));
+  background: -webkit-linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+  background: -o-linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+  background: -ms-linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#e0e0e0', GradientType=0);
+  background: linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+}
+select {
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: middle;
+  margin: 0;
+  padding: 7px 15px;
+  line-height: 100%;
+  cursor: pointer;
+  width: auto;
+  overflow: visible;
+  font-weight: normal;
+  font-size: 14px;
+  text-shadow: 0 1px 0 white;
+  color: #666;
+  text-decoration: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+  display: inline-block;
+  zoom: 1;
+  border: 1px solid #CCC;
+  background: #FCFCFC;
+  background: -moz-linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcfcfc), color-stop(100%, #e0e0e0));
+  background: -webkit-linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+  background: -o-linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+  background: -ms-linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#e0e0e0', GradientType=0);
+  background: linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
+  width: 200px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+h1 {
+  color: #FFF;
+}
+header {
+  height: 50px;
+  background-color: #333;
+  box-shadow: 0 0 10px 1px #333333;
+  -moz-box-shadow: 0 0 10px 1px #333333;
+  -webkit-box-shadow: 0 0 10px 1px #333333;
+  -o-box-shadow: 0 0 10px 1px #333333;
+  position: relative;
+}

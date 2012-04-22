@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SAES2GO</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/site_media/css/master.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+		<script type="text/javascript" src="/site_media/js/json2.js"></script>
+	</head>
+	<body>
+			<div id="header"><input id="btnCambiaForm" type="button" value="Registrarse"></div>
+			<div id="frmContainer">
+				<form id="frmSignIn">
+						<h1>Registro:</h1>
+						<select id="regPerfil" name="regPerfil">
+							<option value="-1">--Tipo Usuario--</option>
+							<option value="2">Gestor</option>
+							<option value="3">Alumno</option>
+							<option value="4">Profesor</option>							
+						</select>
+						<input id="regMail" name="regMail" type="text" placeholder=" Correo">						
+						<input id="btnSignIn" type="button" value="Crear Usuario">
+				</form>				
+			</div>
+	</body>
+</html>
