@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     (r'^validateLogin/$', 'SAES2GO.apps.seguridad.views.validate_login'),
     (r'^emailConfirmation/(.*)/(.*)/$', 'SAES2GO.apps.seguridad.views.email_confirmation'),
     (r'^alumnos/horarios/$', 'SAES2GO.apps.alumnos.views.get_horarios'),
+    (r'^alumnos/materias/$', 'SAES2GO.apps.alumnos.views.get_materias'),
     (r'^alumnos/situacionAcademica/$', 'SAES2GO.apps.alumnos.views.get_situacion_academica'),
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     # Examples:

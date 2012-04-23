@@ -47,6 +47,12 @@ class Elementosmultimedia(models.Model):
     class Meta:
         db_table = u'ElementosMultimedia'
 
+class Gestores(models.Model):
+    gesclavegestor = models.CharField(max_length=135, primary_key=True, db_column='gesClaveGestor') # Field name made lowercase.
+    usuidusuario = models.ForeignKey(Usuarios, db_column='usuIdUsuario') # Field name made lowercase.
+    class Meta:
+        db_table = u'Gestores'
+
 class Grupos(models.Model):
     gruidgrupo = models.CharField(max_length=18, primary_key=True, db_column='gruIdGrupo') # Field name made lowercase.
     grunumgrupo = models.IntegerField(db_column='gruNumGrupo') # Field name made lowercase.
@@ -61,13 +67,13 @@ class Horariosalumno(models.Model):
     haldificultad = models.IntegerField(null=True, db_column='halDificultad', blank=True) # Field name made lowercase.
     halcalificacion = models.FloatField(null=True, db_column='halCalificacion', blank=True) # Field name made lowercase.
     class Meta:
-        db_table = u'HorariosALumno'
+        db_table = u'HorariosAlumno'
 
 class Materias(models.Model):
     matidmateria = models.IntegerField(primary_key=True, db_column='matIdMateria') # Field name made lowercase.
-    matnombremateria = models.CharField(max_length=135, db_column='matNombreMateria') # Field name made lowercase.
+    matnombre = models.CharField(max_length=135, db_column='matNombre') # Field name made lowercase.
     matnumcreditos = models.FloatField(db_column='matNumCreditos') # Field name made lowercase.
-    matnomarea = models.CharField(max_length=135, db_column='matNomArea') # Field name made lowercase.
+    matarea = models.CharField(max_length=135, db_column='matArea') # Field name made lowercase.
     matnumnivel = models.IntegerField(db_column='matNumNivel') # Field name made lowercase.
     class Meta:
         db_table = u'Materias'
@@ -76,11 +82,11 @@ class Materiasgrupo(models.Model):
     matgidmateriagrupo = models.IntegerField(primary_key=True, db_column='matgIdMateriaGrupo') # Field name made lowercase.
     matidmateria = models.ForeignKey(Materias, db_column='matIdMateria') # Field name made lowercase.
     gruidgrupo = models.ForeignKey(Grupos, db_column='gruIdGrupo') # Field name made lowercase.
-    profcedulaprofesor = models.ForeignKey(Profesores, db_column='profCedulaProfesor') # Field name made lowercase.
-    matganio = models.IntegerField(db_column='matgAnio') # Field name made lowercase.
-    matgtiposemestre = models.CharField(max_length=3, db_column='matgTipoSemestre') # Field name made lowercase.
-    magtlugaresdisp = models.IntegerField(db_column='magtLugaresDisp') # Field name made lowercase.
-    matgsalon = models.IntegerField(db_column='matgSalon') # Field name made lowercase.
+    profcedulaprofesor = models.ForeignKey(Profesores, null=True, db_column='profCedulaProfesor', blank=True) # Field name made lowercase.
+    matganio = models.IntegerField(null=True, db_column='matgAnio', blank=True) # Field name made lowercase.
+    matgtiposemestre = models.CharField(max_length=3, db_column='matgTipoSemestre', blank=True) # Field name made lowercase.
+    matglugaresdisp = models.IntegerField(db_column='matgLugaresDisp') # Field name made lowercase.
+    matgsalon = models.IntegerField(null=True, db_column='matgSalon', blank=True) # Field name made lowercase.
     tihidtipohorario = models.ForeignKey(Tiposhorario, db_column='tihIdTipoHorario') # Field name made lowercase.
     class Meta:
         db_table = u'MateriasGrupo'
@@ -95,7 +101,7 @@ class Mensajes(models.Model):
 
 class Perfiles(models.Model):
     peridperfil = models.IntegerField(primary_key=True, db_column='perIdPerfil') # Field name made lowercase.
-    pernombre = models.CharField(max_length=135, db_column='perNombre', blank=True) # Field name made lowercase.
+    pernombre = models.CharField(max_length=135, unique=True, db_column='perNombre') # Field name made lowercase.
     class Meta:
         db_table = u'Perfiles'
 
@@ -109,28 +115,32 @@ class Temarios(models.Model):
     temidtema = models.CharField(max_length=15, primary_key=True, db_column='temIdTema') # Field name made lowercase.
     matidmateria = models.ForeignKey(Materias, db_column='matIdMateria') # Field name made lowercase.
     temidtemapadre = models.ForeignKey('self', db_column='temIdTemaPadre') # Field name made lowercase.
-    temidnombre = models.CharField(max_length=135, db_column='temIdNombre') # Field name made lowercase.
+    temnombre = models.CharField(max_length=135, db_column='temNombre') # Field name made lowercase.
     class Meta:
         db_table = u'Temarios'
 
 class Tiposhorario(models.Model):
     tihidtipohorario = models.IntegerField(primary_key=True, db_column='tihIdTipoHorario') # Field name made lowercase.
-    tihhorainilunes = models.TextField(db_column='tihHoraIniLunes', blank=True) # Field name made lowercase. This field type is a guess.
-    tihhorainimartes = models.TextField(db_column='tihHoraIniMartes', blank=True) # Field name made lowercase. This field type is a guess.
-    tihhorainimiercoles = models.TextField(db_column='tihHoraIniMiercoles', blank=True) # Field name made lowercase. This field type is a guess.
-    tihhorainijueves = models.TextField(db_column='tihHoraIniJueves', blank=True) # Field name made lowercase. This field type is a guess.
-    tihhorainiviernes = models.TextField(db_column='tihHoraIniViernes', blank=True) # Field name made lowercase. This field type is a guess.
+    tihhorainilunes = models.CharField(max_length=135, db_column='tihHoraIniLunes', blank=True) # Field name made lowercase.
+    tihduracionlunes = models.IntegerField(null=True, db_column='tihDuracionLunes', blank=True) # Field name made lowercase.
+    tihhorainimartes = models.CharField(max_length=135, db_column='tihHoraIniMartes', blank=True) # Field name made lowercase.
+    tihduracionmartes = models.IntegerField(null=True, db_column='tihDuracionMartes', blank=True) # Field name made lowercase.
+    tihhorainimiercoles = models.CharField(max_length=135, db_column='tihHoraIniMiercoles', blank=True) # Field name made lowercase.
+    tihduracionmiercoles = models.IntegerField(null=True, db_column='tihDuracionMiercoles', blank=True) # Field name made lowercase.
+    tihhorainijueves = models.CharField(max_length=135, db_column='tihHoraIniJueves', blank=True) # Field name made lowercase.
+    tihduracionjueves = models.IntegerField(null=True, db_column='tihDuracionJueves', blank=True) # Field name made lowercase.
+    tihhorainiviernes = models.CharField(max_length=135, db_column='tihHoraIniViernes', blank=True) # Field name made lowercase.
+    tihduracionviernes = models.IntegerField(null=True, db_column='tihDuracionViernes', blank=True) # Field name made lowercase.
     class Meta:
         db_table = u'TiposHorario'
 
 class Usuarios(models.Model):
     usuidusuario = models.CharField(max_length=135, primary_key=True, db_column='usuIdUsuario') # Field name made lowercase.
     peridperfil = models.ForeignKey(Perfiles, db_column='perIdPerfil') # Field name made lowercase.
-    usunombre = models.CharField(max_length=135, db_column='usuNombre') # Field name made lowercase.
+    usunombre = models.CharField(max_length=135, db_column='usuNombre', blank=True) # Field name made lowercase.
     usuapaterno = models.CharField(max_length=135, db_column='usuAPaterno', blank=True) # Field name made lowercase.
     usuamaterno = models.CharField(max_length=135, db_column='usuAMaterno', blank=True) # Field name made lowercase.
-    usucorreo = models.CharField(max_length=135, db_column='usuCorreo') # Field name made lowercase.
-    usupassword = models.CharField(max_length=135, db_column='usuPassword') # Field name made lowercase.
+    usupassword = models.CharField(max_length=135, db_column='usuPassword', blank=True) # Field name made lowercase.
     class Meta:
         db_table = u'Usuarios'
 
@@ -217,4 +227,16 @@ class DjangoSite(models.Model):
     name = models.CharField(max_length=150)
     class Meta:
         db_table = u'django_site'
+
+class Temp(models.Model):
+    grupo = models.CharField(max_length=135)
+    materia = models.CharField(max_length=135)
+    profesor = models.CharField(max_length=135)
+    lunes = models.CharField(max_length=135)
+    martes = models.CharField(max_length=135)
+    miercoles = models.CharField(max_length=135)
+    jueves = models.CharField(max_length=135)
+    viernes = models.CharField(max_length=135)
+    class Meta:
+        db_table = u'temp'
 
