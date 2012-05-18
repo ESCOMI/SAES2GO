@@ -15,7 +15,7 @@ def validate_login(request):
     idUsuario = request.GET['logUser']
 
     try:
-        usuario = Usuario.objects.get(usuIdUsuario__exact = idUsuario, usuPassword__exact = request.GET['logPass'])
+        usuario = Usuario.objects.get(id__exact = idUsuario, password__exact = request.GET['logPass'])
         request.session["user"] = usuario
 
         t = get_template('alumnos_base.html')
@@ -26,7 +26,7 @@ def validate_login(request):
     except Usuario.DoesNotExist:
         usuario = None    
 
-    return HttpResponseRedirect("http://localhost:8000/home.html")
+    return HttpResponseRedirect("http://localhost:8000")
 
 
 def register_user(request):
@@ -36,7 +36,7 @@ def register_user(request):
 
     confirmation_code = ''.join(random.choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for x in range(33))
 
-    usuario = Usuario.objects.create(usuIdUsuario = mail, usuPassword = confirmation_code, perIdPerfil = perfil)
+    usuario = Usuario.objects.create(id = mail, password = confirmation_code, perfil = perfil)
     usuario.save()
 
     email = EmailMessage('Asunto', 'Favor de ingresar a la siguiente url para completar su registro: http://localhost:8000/emailConfirmation/'+mail+'/'+confirmation_code, to=[mail])
@@ -49,7 +49,7 @@ def register_user(request):
 
 def email_confirmation(request, username , confirmation_code):
     try:
-        user = Usuario.objects.get(usuIdUsuario__exact = username, usuPassword = confirmation_code)
+        user = Usuario.objects.get(id__exact = username, password = confirmation_code)
         
     except Usuario.DoesNotExist:
         user = None

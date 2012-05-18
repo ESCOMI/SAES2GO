@@ -39,6 +39,14 @@ class Alumnos(models.Model):
     class Meta:
         db_table = u'Alumnos'
 
+class Dependenciasmateria(models.Model):
+    depmiddependencia = models.IntegerField(primary_key=True, db_column='depmIdDependencia') # Field name made lowercase.
+    matidmateria = models.ForeignKey(Materias, db_column='matIdMateria') # Field name made lowercase.
+    matidmateriadependiente = models.ForeignKey(Materias, db_column='matIdMateriaDependiente') # Field name made lowercase.
+    mattipodependencia = models.CharField(max_length=135, db_column='matTipoDependencia') # Field name made lowercase.
+    class Meta:
+        db_table = u'DependenciasMateria'
+
 class Elementosmultimedia(models.Model):
     mulidelemento = models.IntegerField(primary_key=True, db_column='mulIdElemento') # Field name made lowercase.
     matgidmateriagrupo = models.ForeignKey(Materiasgrupo, db_column='matgIdMateriaGrupo') # Field name made lowercase.
@@ -75,6 +83,7 @@ class Materias(models.Model):
     matnumcreditos = models.FloatField(db_column='matNumCreditos') # Field name made lowercase.
     matarea = models.CharField(max_length=135, db_column='matArea') # Field name made lowercase.
     matnumnivel = models.IntegerField(db_column='matNumNivel') # Field name made lowercase.
+    mattiposemestre = models.CharField(max_length=3, db_column='matTipoSemestre', blank=True) # Field name made lowercase.
     class Meta:
         db_table = u'Materias'
 

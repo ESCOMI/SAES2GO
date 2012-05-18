@@ -1,6 +1,5 @@
 $(document).ready(function (){
 
-	
 	$("#frmLogIn").submit(function () {
 		var $usuario = $("#logUser")
 		var $pass = $("#logPass")

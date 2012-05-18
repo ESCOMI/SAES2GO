@@ -1,15 +1,13 @@
-html,
-body {
+html, body {
   margin: 0;
-  height: 100%;
-  overflow: hidden;
+  width: 100%;
+  display: table;
 }
 body {
   font-family: Helvetica, Arial, sans-serif;
   padding: 0;
 }
-#frmLogIn,
-#frmSignIn {
+#frmLogIn, #frmSignIn {
   height: 1200px;
   padding: 80px;
   position: relative;
@@ -29,8 +27,7 @@ body {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
   box-shadow: 0 0 7px 0 #ffffff;
   -moz-box-shadow: 0 0 7px 0 #ffffff;
   -webkit-box-shadow: 0 0 7px 0 #ffffff;
@@ -46,8 +43,7 @@ select:focus {
   border: 1px solid #50B1FE;
   outline: none;
 }
-form input[type="text"],
-input[type="password"] {
+form input[type="text"], input[type="password"], input[type="email"] {
   width: 200px;
   margin: 10px auto;
   border: 1px solid #FFF;
@@ -58,8 +54,7 @@ input[type="password"] {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-form input[type="button"],
-form input[type="submit"] {
+form input[type="button"], form input[type="submit"] {
   width: 200px;
   margin: 0 auto;
   margin-top: 80px;
@@ -67,8 +62,7 @@ form input[type="submit"] {
   font-size: 18px;
   background-color: #FFF;
 }
-input[type="button"],
-input[type="submit"] {
+input[type="button"], input[type="submit"] {
   position: relative;
   top: 0;
   left: 0;

@@ -16,20 +16,33 @@ INSERT INTO Grupos (gruIdGrupo, gruNumGrupo, gruTurno) VALUES
 ('1CV8', 8, 'V'),
 ('1CV9', 9, 'V');
 
-INSERT INTO Materias (matIdMateria, matNombre, matNumCreditos, matArea, matNumNivel) VALUES
-(28, 'ESTRUCTURAS DE DATOS', 0, '', 1),
-(29, 'ANALISIS FUNDAMENTAL DE CIRCUITOS', 0, '', 1),
-(30, 'ANALISIS VECTORIAL', 0, '', 1),
-(31, 'COMUNICACION ORAL Y ESCRITA', 0, '', 1),
-(32, 'ALGORITMIA Y PROGRAMACION ESTRUCTURADA', 0, '', 1),
-(33, 'MATEMATICAS DISCRETAS', 0, '', 1),
-(34, 'CALCULO', 0, '', 1),
-(35, 'FISICA', 0, '', 1),
-(36, 'ECUACIONES DIFERENCIALES', 0, '', 1),
-(37, 'CALCULO APLICADO', 0, '', 1),
-(38, 'ALGEBRA LINEAL', 0, '', 1),
-(39, 'INGENIERIA ETICA Y SOCIEDAD', 0, '', 1);
-
+insert into Materias (matNombre, matNumCreditos, matArea, matNumNivel, matTipoSemestre) values
+('ANALISIS VECTORIAL',4.39,null,1,'A'),
+('CALCULO',4.45,null,1,'A'),
+('MATEMATICAS DISCRETAS',5.85,null,1,'A'),
+('ALGORITMIA Y PROGRAMACION ESTRUCTURADA',4.33,null,1,'A'),
+('FISICA',4.39,null,1,'A'),
+('INGENIERIA ETICA Y SOCIEDAD',4.39,null,1,'A'),
+('ECUACIONES DIFERENCIALES',4.39,null,1,'B'),
+('ALGEBRA LINEAL',4.39,null,1,'B'),
+('CALCULO APLICADO',4.44,null,1,'B'),
+('ESTRUCTURAS DE DATOS',4.39,null,1,'B'),
+('COMUNICACION ORAL Y ESCRITA',4.39,null,1,'B'),
+('ANALISIS FUNDAMENTAL DE CIRCUITOS',7.50,null,1,'B'),
+('MATEMATICAS AVANZADAS PARA LA INGENIERIA',4.46,null,2,'A'),
+('FUNDAMENTOS ECONOMICOS',4.33,null,2,'A'),
+('FUNDAMENTOS DE DISEÑO DIGITAL',4.48,null,2,'A'),
+('TEORIA COMPUTACIONAL',4.30,null,2,'A'),
+('BASES DE DATOS',4.44,null,2,'A'),
+('PROGRAMACION ORIENTADA A OBJETOS',4.34,null,2,'A'),
+('ELECTRONICA ANALOGICA',4.35,null,2,'A'),
+('REDES DE COMPUTADORAS',4.46,null,2,'B'),
+('DISEÑO DE SISTEMAS DIGITALES',4.50,null,2,'B'),
+('PROBABILIDAD Y ESTADISTICA',4.39,null,2,'B'),
+('SISTEMAS OPERATIVOS',4.39,null,2,'B'),
+('ANALISIS Y DISEÑO ORIENTADO A OBJETOS',4.39,null,2,'B'),
+('TECNOLOGIAS PARA LA WEB',4.49,null,2,'B'),
+('ADMINISTRACION FINANCIERA',4.36,null,2,'B');
 
 -- Expresion regular para quitar el horario de fin de clase -\d{2}:\d{2}
 

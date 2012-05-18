@@ -1,23 +1,186 @@
-#dvPerfil{margin-top:30px;margin-bottom:100px;}
-#dvPerfil img{width:100%;height:130px;background-color:#ccc;}
-#mainArticle{width:1000px;height:100%;background-color:#FFF;margin:0 auto;margin-top:-30px;border:1px solid #DDD;box-shadow:0 0 10px 1px #333333;-moz-box-shadow:0 0 10px 1px #333333;-webkit-box-shadow:0 0 10px 1px #333333;-o-box-shadow:0 0 10px 1px #333333;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
-.leftPane{height:100%;width:200px;padding:20px;border-right:1px solid #ccc ;display:inline-block;vertical-align:top;}.leftPane ul{list-style:none;padding:0;cursor:pointer;}
-.leftPane li{padding-left:10px;color:#333;height:40px;line-height:40px;margin:10px 0;border-left:1px solid #BB3B3F ;cursor:pointer;}
-.leftPane li.sobreMenu{background-color:#BB3B3F ;color:#fff;}
-.rightPane{height:100%;width:700px;padding:20px;display:inline-block;vertical-align:top;}
-#kardex{width:700px;vertical-align:top;}#kardex table{font-size:12px;width:700px;margin-top:10px;}#kardex table tr{height:30px;}#kardex table tr td{text-align:center;width:auto;}
-#kardex table thead tr:first-child{cursor:pointer;background-color:#666;color:#fff;height:40px;font-size:14px;}
-#kardex table:first-child{margin-top:20px;}#kardex table:first-child thead tr:last-child{display:table-row;}
-#kardex table:first-child tbody{display:table-row-group;}
-#kardex table tbody,#kardex table thead tr:last-child{display:none;}
-#kardex table tr td:first-child{width:250px;text-align:left;}
-#dvTipoHorario{background-color:#666;color:#fff;height:40px;line-height:40px;text-align:center;}
-#dvHorarios{display:inline-block;}#dvHorarios table{font-size:12px;width:380px;margin-top:10px;}#dvHorarios table tr{height:30px;}#dvHorarios table tr td{text-align:center;width:60px;}
-#dvHorarios table tr td:first-child{width:80px;text-align:left;background-color:#DDD;}
-#detalleHorario{display:inline-block;width:150px;}
-#tiraMaterias{display:inline-block;list-style:none;width:200px;vertical-align:top;margin-top:40px;font-size:12px;color:#333;}#tiraMaterias li{margin:10px 0;margin-right:20px;border:none;}#tiraMaterias li span{width:30px;height:12px;margin:auto 0;margin-right:10px;display:inline-block;background-color:#DDD;}
-.titulo{font-size:18px;padding:20px 0px;}
-h1{margin-top:25px;font-size:28px;color:#C83F44;}
-.column{display:inline-block;width:300px;}
-#Concentrados div.column{font-size:14px;color:#333;padding:10px 0;}
-#Concentrados div.column span{font-weight:bold;}
+#dvPerfil {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+#dvPerfil img {
+  width: 100%;
+  height: 130px;
+  background-color: #ccc;
+}
+#mainArticle {
+  height: 100%;
+  background-color: #FFF;
+  margin: 0 20px;
+  margin-top: -30px;
+  border: 1px solid #DDD;
+  box-shadow: 0 0 10px 1px #333333;
+  -moz-box-shadow: 0 0 10px 1px #333333;
+  -webkit-box-shadow: 0 0 10px 1px #333333;
+  -o-box-shadow: 0 0 10px 1px #333333;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  width: auto;
+}
+.leftPane {
+  height: 100%;
+  width: 180px;
+  padding: 20px;
+  border-right: 1px solid #ccc ;
+  display: table-cell;
+  vertical-align: top;
+}
+.leftPane ul {
+  list-style: none;
+  padding: 0;
+  cursor: pointer;
+}
+.leftPane li {
+  padding-left: 10px;
+  color: #333;
+  height: 40px;
+  line-height: 40px;
+  margin: 10px 0;
+  border-left: 1px solid #BB3B3F ;
+  cursor: pointer;
+}
+.leftPane li.sobreMenu {
+  background-color: #BB3B3F ;
+  color: #fff;
+}
+.rightPane {
+  height: 100%;
+  padding: 20px;
+  display: table-cell;
+  vertical-align: top;
+}
+/****************************HORARIOS**********************/
+#dvTipoHorario {
+  background-color: #666;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+#dvHorarios {
+  display: inline-block;
+}
+#dvHorarios table {
+  font-size: 12px;
+  width: 380px;
+  margin-top: 10px;
+}
+#dvHorarios table tr {
+  height: 30px;
+}
+#dvHorarios table tr td {
+  text-align: center;
+  width: 60px;
+}
+#dvHorarios table tr td:first-child {
+  width: 80px;
+  text-align: left;
+  background-color: #DDD;
+}
+#detalleHorario {
+  display: inline-block;
+  width: 150px;
+}
+#tiraMaterias {
+  display: inline-block;
+  list-style: none;
+  width: 200px;
+  vertical-align: top;
+  margin-top: 40px;
+  font-size: 12px;
+  color: #333;
+}
+#tiraMaterias li {
+  margin: 10px 0;
+  margin-right: 20px;
+  border: none;
+}
+#tiraMaterias li span {
+  width: 30px;
+  height: 12px;
+  margin: auto 0;
+  margin-right: 10px;
+  display: inline-block;
+  background-color: #DDD;
+}
+/***************************************************************/
+.titulo {
+  font-size: 18px;
+  padding: 20px 0px;
+}
+h1 {
+  margin-top: 25px;
+  font-size: 28px;
+  color: #C83F44;
+}
+.column {
+  display: inline-block;
+  width: 300px;
+}
+/*************************Situacion Academica*********************/
+#Concentrados div.column {
+  font-size: 14px;
+  color: #333;
+  padding: 10px 0;
+}
+#Concentrados div.column span {
+  font-weight: bold;
+}
+.listaHorizontal {
+  font-size: 10px;
+  margin: 0px auto;
+  background-color: #fff;
+}
+.listaHorizontal > li {
+  display: inline-block;
+  background-color: #333333;
+  width: 80px;
+  height: 50px;
+  padding: 5px;
+  margin: 10px 5px;
+  color: #fff;
+  border-radius: 5px;
+  vertical-align: top;
+}
+.listaHorizontal > li .encurso {
+  background-color: #fff;
+}
+.listaHorizontal > li .reprobada {
+  background-color: #FF1710;
+  border-color: #333;
+}
+.listaHorizontal > li .aprobada {
+  background-color: #21AB10;
+  border-color: #333;
+}
+.listaHorizontal > li:hover {
+  cursor: pointer;
+}
+#kardex ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#mapaCurricular > li {
+  box-shadow: 0 0 5px 1px #ccc;
+  margin-top: 20px;
+}
+.IB {
+  display: inline-block;
+}
+.indicadorNivel {
+  font-size: 20px;
+  width: 100%;
+  height: 40px;
+  background-color: #eee;
+  line-height: 40px;
+  text-align: center;
+  color: #333;
+}
+/******************************************************************/

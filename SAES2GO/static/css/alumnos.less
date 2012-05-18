@@ -11,29 +11,31 @@
 
 
 #mainArticle{
-	width:1000px;
 	height: 100%;
 	background-color: #FFF;
-	  margin: 0 auto;
-	  margin-top: -30px;
-	  border: 1px solid #DDD;
-	  box-shadow: 0 0 10px 1px #333333;
-	  -moz-box-shadow: 0 0 10px 1px #333333;
-	  -webkit-box-shadow: 0 0 10px 1px #333333;
-	  -o-box-shadow: 0 0 10px 1px #333333;
-	  -moz-border-radius: 5px;
-	  -webkit-border-radius: 5px;
-	  border-radius: 5px;
+	margin: 0 20px;
+	margin-top: -30px;
+	border: 1px solid #DDD;
+	box-shadow: 0 0 10px 1px #333333;
+	-moz-box-shadow: 0 0 10px 1px #333333;
+	-webkit-box-shadow: 0 0 10px 1px #333333;
+	-o-box-shadow: 0 0 10px 1px #333333;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 
+	display: block;
+    width:auto;
+    
 }
 
 
 .leftPane{
 	height:100%;
-	width:200px;
+	width:180px;
 	padding: 20px;
 	border-right: 1px solid #ccc ;
-	display: inline-block;
+	display: table-cell;
 	vertical-align: top;
 
 	ul{
@@ -62,71 +64,10 @@
 
 .rightPane{
 	height:100%;
-	width:700px;
 	padding: 20px;
-	display: inline-block;
+	display: table-cell;
 	vertical-align: top;
 }
-
-
-.listaTablas(@anchoTabla,@altoFila,@anchoColumna){
-	width:@anchoTabla;
-	vertical-align: top;
-
-	table{
-		font-size:12px;
-		width:@anchoTabla;
-		margin-top: 10px;
-
-		tr{
-			height:@altoFila;
-
-			td{
-				text-align: center;
-				width:@anchoColumna;
-				
-			}
-		}
-
-		thead tr:first-child{
-			cursor: pointer;
-			background-color: #666;
-			color: #fff;
-			height:40px;
-			font-size: 14px;
-		}
-
-		&:first-child{
-			margin-top: 20px;
-
-			thead tr:last-child{
-				display: table-row;
-			}			
-
-			tbody{
-				display:table-row-group;
-
-			}
-		}
-
-		tbody,thead tr:last-child{
-			display: none;
-		}
-
-	}		
-}
-
-#kardex{
-
-	.listaTablas(700px,30px,auto);
-
-	table tr td:first-child{
-		width:250px;
-		text-align: left;
-	}
-
-}
-
 
 
 
@@ -223,6 +164,7 @@ h1{
 	width:300px;
 }
 
+/*************************Situacion Academica*********************/
 #Concentrados div.column{
 	font-size: 14px;
 	color: #333;
@@ -234,3 +176,76 @@ h1{
 #Concentrados div.column span{
 	font-weight: bold;
 }
+
+
+.listaHorizontal{
+	font-size:10px;
+	margin: 0px auto;
+	background-color:#fff;
+
+	> li{
+
+		display: inline-block;
+		background-color: hsl(0,0,20%);
+		width:80px;		
+		height:50px;	
+		padding: 5px;
+		margin: 10px 5px;
+		color: #fff;
+		border-radius:5px;
+		vertical-align: top;
+
+
+		.encurso{
+			background-color:#fff;
+		}
+
+		.reprobada{
+			background-color:#FF1710;
+			border-color: #333;
+		}
+
+		.aprobada{
+			background-color:#21AB10;
+			border-color: #333;
+		}
+		
+	}
+
+	>li:hover{
+			cursor: pointer;
+		}
+}
+
+#kardex{
+
+	ul{
+		list-style:none;
+		margin:0;
+		padding:0;
+	}
+
+}
+
+#mapaCurricular{
+	>li{
+		box-shadow:0 0 5px 1px #ccc;
+		margin-top: 20px;		
+	}
+}
+
+.IB{
+	display: inline-block;
+}
+
+.indicadorNivel{
+	font-size:20px;
+	width:100%;
+	height:40px;
+	background-color: #eee;
+	line-height:40px;
+	text-align: center;
+	color: #333;
+	
+}
+/******************************************************************/
