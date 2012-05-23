@@ -55,6 +55,6 @@ class DependenciasMateria(models.Model):
         return '{"requisito":'+str(self.materiaRequisito.id)+',"tipo","'+str(self.tipoDependencia)+'"}'
 
     def __unicode__(self):
-        return self.materia.nombre+' <- '+self.materiaRequisito.nombre+' ('+self.tipoDependencia+')'
+        return self.materia.nombre+' <- '+self.materiaRequisito.nombre
     
         

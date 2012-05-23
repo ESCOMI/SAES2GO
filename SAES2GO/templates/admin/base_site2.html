@@ -1,0 +1,30 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+ 
+{% block blockbots %}
+	<link rel="stylesheet" type="text/css" href="/site_media/css/admin_styles.css" />
+	{{ block.super }}
+{% endblock %}
+
+{% block title %}{{ title }} | {% trans 'SAES2GO' %}{% endblock %}
+ 
+{% block branding %}
+<style type="text/css">
+  #header
+  {
+	    
+	height: 50px;
+	background-color: #333;
+	box-shadow: 0 0 10px 1px #333333;
+	-moz-box-shadow: 0 0 10px 1px #333333;
+	-webkit-box-shadow: 0 0 10px 1px #333333;
+	-o-box-shadow: 0 0 10px 1px #333333;
+	position: relative;
+	
+  }
+
+</style>
+<h1 id="site-name">{% trans 'SAES2GO' %}</h1>
+{% endblock %}
+ 
+{% block nav-global %}{% endblock %}

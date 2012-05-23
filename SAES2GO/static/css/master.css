@@ -141,3 +141,22 @@ header {
   -o-box-shadow: 0 0 10px 1px #333333;
   position: relative;
 }
+header h1 {
+  color: #fff;
+  font-size: 26px;
+  font-family: "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+  padding: 8px 10px;
+  margin: 0;
+  font-weight: normal;
+}
+header h1 span {
+  color: #FF3939;
+}
+#branding h1#site-name {
+  color: #fff;
+  font-size: 26px;
+  font-family: "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+#branding h1#site-name span {
+  color: #FF3939;
+}
