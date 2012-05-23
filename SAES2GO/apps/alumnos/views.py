@@ -9,7 +9,7 @@ from SAES2GO.apps.alumnos.models import Materia
 def get_horarios(request):
 
     idUsuario = request.session["user"]
-    print idUsuario.usuIdUsuario
+    
     t = get_template('horarios.html')
 
     html = t.render(Context({'usuario': idUsuario}))

@@ -54,5 +54,4 @@ def email_confirmation(request, username , confirmation_code):
     except Usuario.DoesNotExist:
         user = None
 
-    print user.usuIdUsuario
     return render_to_response('emailConfirmation.html')

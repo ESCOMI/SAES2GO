@@ -33,9 +33,7 @@ class Materia(models.Model):
         listdependencias = []
         for dependencia in dependencias:
             listdependencias.append({'materiaRequisito':int(dependencia.materiaRequisito.id),'tipoDependencia':dependencia.tipoDependencia.encode('utf-8')})
-            
 
-        print listdependencias
         return listdependencias
 
     def __unicode__(self):
