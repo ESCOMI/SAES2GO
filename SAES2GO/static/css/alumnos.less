@@ -1,3 +1,26 @@
+/*
+	Global variables
+*/
+
+
+@dark-red: #BB3B3F;
+@light-red: #C83F44;
+
+
+.box-shadow (@x, @y, @blur, @spread, @color) {
+  box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+  -o-box-shadow: @arguments;
+}
+
+
+.border-radius (@radio:5px) {
+	-moz-border-radius: @radio;
+	-webkit-border-radius: @radio;
+	border-radius: @radio;
+}
+
 #dvPerfil{
 	margin-top: 30px;
 	margin-bottom: 100px;
@@ -16,16 +39,17 @@
 	margin: 0 20px;
 	margin-top: -30px;
 	border: 1px solid #DDD;
-	box-shadow: 0 0 10px 1px #333333;
-	-moz-box-shadow: 0 0 10px 1px #333333;
-	-webkit-box-shadow: 0 0 10px 1px #333333;
-	-o-box-shadow: 0 0 10px 1px #333333;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
 
+	.box-shadow (0, 0, 10px, 1px, #333);	
+	.border-radius;
 	display: block;
-    width:auto;
+	width:auto;
+	
+	.asTable{
+		display: table;
+		width:100%;
+	}
+	
     
 }
 
@@ -50,13 +74,13 @@
 		height:40px;
 		line-height:40px;	
 		margin: 10px 0;	
-		border-left: 1px solid #BB3B3F ;
+		border-left: 1px solid @dark-red;
 		cursor:pointer;	
 		
 	}
 
 	li.sobreMenu{			
-		background-color:#BB3B3F ;
+		background-color:@dark-red;
 		color: #fff;
 			
 	}
@@ -85,30 +109,71 @@
 }
 
 #dvHorarios{
-	display: inline-block;
 
-	//.listaTablas(380px,30px,60px);
+	
 	table{
+
+		vertical-align: top;	
 		font-size:12px;
-		width:380px;
+		width:100%;
 		margin-top: 10px;
+		border-spacing: 0;
 
 		tr{
 			height:30px;
+			border-width: 0;
 
 			td{
 				text-align: center;
-				width:60px;
+				min-width:80px;
+				min-height:50px;
+				height:50px;
+				font-size:10px;	
+
+				> div.target{
+					
+					border:1px dotted #AAA;
+					height:90%;	
+					width:90%;
+					margin: auto;
+					color: #AAA;
+
+					&:before{
+
+						content:'soltar aqui';
+
+					}
+					
+				}
+
+				> div.elegida{				
+					max-width:80px;
+					text-align: left;
+					padding: 10px;
+					cursor: pointer;
+				}
 				
+										
 			}
 		}
 
 	}
 
 	table tr td:first-child{
-		width:80px;
+		max-width:100px;
+		width:100px;
 		text-align: left;
-		background-color: #DDD;
+		background-color: lighten(@light-red, 30%);
+		text-align: center;
+		color:#fff;
+		font-weight: bold;
+		border:none;	
+	}
+
+	thead tr th{
+		background-color: #333;
+		color:#fff;
+		border:none;	
 	}
 }
 
@@ -119,27 +184,21 @@
 
 
 #tiraMaterias{
-	display: inline-block;	
-	list-style: none;
-	width:200px;
-	vertical-align:top;
-	margin-top: 40px;
-	font-size:12px;
-	color:#333;
+	font-size:10px;	
+	padding: 0;
+	list-style:none;
 
 	li{	
-		margin: 10px 0;
-		margin-right:20px;
-		border:none;
-
-		span{
-			width:30px;
-			height:12px;
-			margin: auto 0;
-			margin-right: 10px;
-			display: inline-block;
-			background-color: #DDD;
-		}
+		display: inline-block;
+		background-color: #333;
+		width: 80px;
+		height: 50px;
+		padding: 5px;
+		margin: 4px 4px;
+		color: white;
+		border-radius: 5px;
+		vertical-align: middle;
+		cursor: pointer;
 	}
 
 }
@@ -155,7 +214,7 @@
 h1{
 	margin-top: 25px;
 	font-size: 28px;
-	color: #C83F44;
+	color: @light-red;
 
 }
 
@@ -229,7 +288,7 @@ h1{
 
 #mapaCurricular{
 	>li{
-		box-shadow:0 0 5px 1px #ccc;
+		.box-shadow (0, 0, 5px, 1px, #ccc);
 		margin-top: 20px;		
 	}
 }

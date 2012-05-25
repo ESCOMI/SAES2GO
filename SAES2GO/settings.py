@@ -128,7 +128,7 @@ INSTALLED_APPS = (
     'SAES2GO.apps.seguridad',
     'SAES2GO.apps.alumnos',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging

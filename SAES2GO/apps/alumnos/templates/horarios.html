@@ -1,8 +1,20 @@
 <h1>Horarios</h1>
-<div id="dvTipoHorario">Horario Actual</div>
-<ul id="tiraMaterias">
-	
-</ul>
+
+<select id="cmbNiveles">
+	<option value="0">-- Nivel --</option>
+	<option value="1">Nivel 1</option>
+	<option value="2">Nivel 2</option>
+	<option value="3">Nivel 3</option>
+</select>
+
+<select id="cmbGrupos">
+	<option value="0">-- Grupo --</option>
+</select>
+
+<input id="generaBinario" type="button" value="Guardar Horario">
+<input id="borraBinario" type="button" value="Limpiar">
+
+
 <!--<div id="detalleHorario">
 	<div>Profesor:<span></span></div>
 	<div>Grupo:<span></span></div>
@@ -12,23 +24,24 @@
 	<div>Asistencias:<span></span></div>
 </div>-->
 <div id="dvHorarios">
-	<table border="1">
+	<ul id="tiraMaterias">
+	
+	</ul>
+	<table>
 		<thead>			
 			<tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miercoles</th><th>Jueves</th><th>Viernes</th></tr>
 		</thead>								
 		<tbody>								
-			<tr><td>07:00 - 08:30</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-			<tr><td>08:30 - 10:00</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-			<tr><td>10:30 - 12:00</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-			<tr><td>12:00 - 13:30</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-			<tr><td>13:30 - 15:00</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-			<tr><td>15:00 - 16:30</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-			<tr><td>16:30 - 18:00</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-			<tr><td>18:30 - 20:00</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-			<tr><td>20:00 - 21:30</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+			<tr class="matutino"><td>07:00 - 08:30</td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+			<tr class="matutino"><td>08:30 - 10:00</td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+			<tr class="matutino"><td>10:30 - 12:00</td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+			<tr class="matutino"><td>12:00 - 13:30</td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+			<tr class="mixto"><td>13:30 - 15:00</td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+			<tr class="vespertino"><td>15:00 - 16:30</td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+			<tr class="vespertino"><td>16:30 - 18:00</td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+			<tr class="vespertino"><td>18:30 - 20:00</td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+			<tr class="vespertino"><td>20:00 - 21:30</td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
 		</tbody>
 	</table>
-	<input id="binario" type="text">
-	<input id="generaBinario" type="button" value="genera">
-	<input id="borraBinario" type="button" value="limpiar">
+
 </div>

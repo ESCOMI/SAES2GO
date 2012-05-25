@@ -1,3 +1,6 @@
+/*
+	Global variables
+*/
 #dvPerfil {
   margin-top: 30px;
   margin-bottom: 100px;
@@ -23,6 +26,10 @@
   display: block;
   width: auto;
 }
+#mainArticle .asTable {
+  display: table;
+  width: 100%;
+}
 .leftPane {
   height: 100%;
   width: 180px;
@@ -42,11 +49,11 @@
   height: 40px;
   line-height: 40px;
   margin: 10px 0;
-  border-left: 1px solid #BB3B3F ;
+  border-left: 1px solid #bb3b3f;
   cursor: pointer;
 }
 .leftPane li.sobreMenu {
-  background-color: #BB3B3F ;
+  background-color: #bb3b3f;
   color: #fff;
 }
 .rightPane {
@@ -63,51 +70,75 @@
   line-height: 40px;
   text-align: center;
 }
-#dvHorarios {
-  display: inline-block;
-}
 #dvHorarios table {
+  vertical-align: top;
   font-size: 12px;
-  width: 380px;
+  width: 100%;
   margin-top: 10px;
+  border-spacing: 0;
 }
 #dvHorarios table tr {
   height: 30px;
+  border-width: 0;
 }
 #dvHorarios table tr td {
   text-align: center;
-  width: 60px;
+  min-width: 80px;
+  min-height: 50px;
+  height: 50px;
+  font-size: 10px;
+}
+#dvHorarios table tr td > div.target {
+  border: 1px dotted #AAA;
+  height: 90%;
+  width: 90%;
+  margin: auto;
+  color: #AAA;
+}
+#dvHorarios table tr td > div.target:before {
+  content: 'soltar aqui';
+}
+#dvHorarios table tr td > div.elegida {
+  max-width: 80px;
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
 }
 #dvHorarios table tr td:first-child {
-  width: 80px;
+  max-width: 100px;
+  width: 100px;
   text-align: left;
-  background-color: #DDD;
+  background-color: #eab6b8;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+#dvHorarios thead tr th {
+  background-color: #333;
+  color: #fff;
+  border: none;
 }
 #detalleHorario {
   display: inline-block;
   width: 150px;
 }
 #tiraMaterias {
-  display: inline-block;
+  font-size: 10px;
+  padding: 0;
   list-style: none;
-  width: 200px;
-  vertical-align: top;
-  margin-top: 40px;
-  font-size: 12px;
-  color: #333;
 }
 #tiraMaterias li {
-  margin: 10px 0;
-  margin-right: 20px;
-  border: none;
-}
-#tiraMaterias li span {
-  width: 30px;
-  height: 12px;
-  margin: auto 0;
-  margin-right: 10px;
   display: inline-block;
-  background-color: #DDD;
+  background-color: #333;
+  width: 80px;
+  height: 50px;
+  padding: 5px;
+  margin: 4px 4px;
+  color: white;
+  border-radius: 5px;
+  vertical-align: middle;
+  cursor: pointer;
 }
 /***************************************************************/
 .titulo {
@@ -117,7 +148,7 @@
 h1 {
   margin-top: 25px;
   font-size: 28px;
-  color: #C83F44;
+  color: #c83f44;
 }
 .column {
   display: inline-block;
@@ -168,7 +199,10 @@ h1 {
   padding: 0;
 }
 #mapaCurricular > li {
-  box-shadow: 0 0 5px 1px #ccc;
+  box-shadow: 0 0 5px 1px #cccccc;
+  -moz-box-shadow: 0 0 5px 1px #cccccc;
+  -webkit-box-shadow: 0 0 5px 1px #cccccc;
+  -o-box-shadow: 0 0 5px 1px #cccccc;
   margin-top: 20px;
 }
 .IB {

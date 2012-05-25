@@ -26,7 +26,7 @@ def validate_login(request):
     except Usuario.DoesNotExist:
         usuario = None    
 
-    return HttpResponseRedirect("http://localhost:8000")
+    return HttpResponseRedirect("/")
 
 
 def register_user(request):

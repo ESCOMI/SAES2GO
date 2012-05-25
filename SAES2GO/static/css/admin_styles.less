@@ -14,7 +14,6 @@
 
 input[type="text"]:focus{
 	.box-shadow (0, 0, 7px, 0, #FFF);		
-	
 	outline: none;
 }
 
@@ -90,13 +89,13 @@ select{
 	left: 0;
 	vertical-align: middle;
 	margin: 0;
-	padding: 0;
+	padding: 0 5px;
 	line-height: 100%;
 	cursor: pointer;
 	width: auto;
 	overflow: visible;
 	font-weight: normal;
-	font-size: 14px;
+	font-size: 12px;
 	text-shadow: 0 1px 0 white;
 	color: #666;
 	text-decoration: none;
@@ -114,7 +113,7 @@ select{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#e0e0e0',GradientType=0 );
 	background: linear-gradient(top, rgba(252, 252, 252, 1) 0%,rgba(224, 224, 224, 1) 100%);
 
-	width:20em;
+	min-width:180px;
 	.border-radius;
 }
 
@@ -126,8 +125,9 @@ body{
 }
 
 div.breadcrumbs {
-	margin-top: 5px;
-	padding: 2px 8px 3px 8px;
+	background: none;
+	margin: 0;
+	padding: 10px;
 	font-size: 16px;
 	color: #333;
 	text-align: left;
@@ -157,10 +157,9 @@ div.breadcrumbs {
 	.module{
 		margin: 20px 0;
 		background-color: #FFF;
-		box-shadow: 0 0 10px 1px #333333;
-		-moz-box-shadow: 0 0 10px 1px #333333;
-		-webkit-box-shadow: 0 0 10px 1px #333333;
-		-o-box-shadow: 0 0 10px 1px #333333;
+
+
+		.box-shadow (0, 0, 10px, 1px, #333);
 
 		table tr td{
 			height:30px;
@@ -207,7 +206,8 @@ div.breadcrumbs {
 		width: auto;
 
 		h1{
-			width:600px;
+			width:900px;
+			max-width:900px;
 			margin: 0 auto;
 		}
 	}
@@ -221,7 +221,8 @@ div.breadcrumbs {
 	#content-main{
 		margin: 0 auto;
 		float: none;
-		width:600px;
+		width:900px;
+		max-width:900px;
 	}
 
 }
@@ -240,17 +241,12 @@ div.breadcrumbs {
 	h1{
 		margin: 20px 0px;
 	}
-	width: 800px;
+	width: 900px;
 	margin: 0 auto;
 
 	.module{
 		background-color: #FFF;
-		box-shadow: 0 0 10px 1px #333;
-		-moz-box-shadow: 0 0 10px 1px #333;
-		-webkit-box-shadow: 0 0 10px 1px #333;
-		-o-box-shadow: 0 0 10px 1px #333;
-
-
+		.box-shadow (0, 0, 10px, 1px, #333);
 	}
 
 	.actions {
@@ -311,21 +307,32 @@ a:link, a:visited, a:link, a:visited {
 }
 
 
-.object-tools li {
-	background:none;
-}
+.object-tools {
 
-.object-tools a.addlink,.object-tools a.historylink {
-	.boton;
-	font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
-	background: #417EEE;
-	color: #fff;
-	padding: 0;
-	height:30px;
-	margin-top: -10px;
-	padding: 5px;
-	&:after{
-		content:'+';
+	li {
+		background:none;
+
+		&:hover{
+			background:none;
+		}
+	}
+
+	a.addlink:hover,a.historylink:hover {
+		background: #417EEE;
+	}
+
+	a.addlink, a.historylink {
+		.boton;
+
+		font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+		background: #417EEE;
+		color: #fff;
+		height:30px;
+		margin-top: -15px;
+		padding: 8px 15px;
+		&:after{
+			content:'+';
+		}
 	}
 }
 
@@ -353,7 +360,7 @@ a:link, a:visited, a:link, a:visited {
 	height:30px;
 	a:link, a:visited {
 		color: #666;
-		font-size: 12px;
+		font-size: 10px;
 	}
 
 	a:hover {
@@ -365,7 +372,7 @@ a:link, a:visited, a:link, a:visited {
 	height:30px;
 	a:link, a:visited {
 		color: #666;
-		font-size: 12px;
+		font-size: 10px;
 	}
 
 	a:hover {

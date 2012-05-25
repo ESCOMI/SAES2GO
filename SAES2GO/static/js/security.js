@@ -4,12 +4,12 @@ $(document).ready(function (){
 		var $usuario = $("#logUser")
 		var $pass = $("#logPass")
 		if($usuario.val() == ""){	
-			$usuario .css("background-color","#F6F0AB")
+			$usuario .css("background-color","#F3EFC0")
 			return false;
 		}
 
 		if($pass.val() == ""){	
-			$pass .css("background-color","#F6F0AB")
+			$pass .css("background-color","#F3EFC0")
 			return false;
 		}
 

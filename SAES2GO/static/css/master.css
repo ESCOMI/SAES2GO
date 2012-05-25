@@ -1,7 +1,6 @@
 html, body {
   margin: 0;
   width: 100%;
-  display: table;
 }
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -18,7 +17,7 @@ body {
   margin: 0 auto;
   margin-top: -30px;
   border: 1px solid #DDD;
-  background-color: #BB3B3F;
+  background-color: #bb3b3f;
   box-shadow: 0 0 10px 1px #333333;
   -moz-box-shadow: 0 0 10px 1px #333333;
   -webkit-box-shadow: 0 0 10px 1px #333333;
@@ -27,7 +26,7 @@ body {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-input[type="text"]:focus, input[type="password"]:focus {
+input:focus {
   box-shadow: 0 0 7px 0 #ffffff;
   -moz-box-shadow: 0 0 7px 0 #ffffff;
   -webkit-box-shadow: 0 0 7px 0 #ffffff;
@@ -46,10 +45,11 @@ select:focus {
 form input[type="text"], input[type="password"], input[type="email"] {
   width: 200px;
   margin: 10px auto;
+  padding: 0 5px;
   border: 1px solid #FFF;
   height: 30px;
-  line-height: 30px;
-  font-size: 18px;
+  line-height: 14px;
+  font-size: 14px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -124,7 +124,6 @@ select {
   background: -ms-linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#e0e0e0', GradientType=0);
   background: linear-gradient(top, #fcfcfc 0%, #e0e0e0 100%);
-  width: 200px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;

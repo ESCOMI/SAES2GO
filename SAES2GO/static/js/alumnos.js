@@ -11,13 +11,93 @@ $(document).ready(function (){
        }
     );
 
+    var $materiaClonada = null;
+    var $targetsMateria = null;
 
     $("#dvNav ul li").click(
        function()
        {                    
-            /*$.get("/alumnos/"+$(this).data("view")+"/",function  (html) {
-               $(".rightPane").html(html);
-            });*/
+            $.get("/alumnos/"+$(this).data("view")+"/",function  (html) {
+
+              $(".rightPane").html(html);
+
+
+              $targetsMateria = $("#dvHorarios").find("table > tbody > tr > td > div");
+
+
+              $targetsMateria.click(function () {
+
+                if($materiaClonada != null){
+                  $(this).attr("class","elegida").html($materiaClonada.html());
+                  $materiaClonada = null;
+                }
+
+              }).dblclick(function () {
+                
+                  $(this).html('').attr("class","target");
+
+              });
+
+              // Se consultan las materias filtrando por nivel
+              $("#cmbNiveles").change(function (){                  
+
+                if($(this).val() == -1) return false;
+                
+                $.getJSON("/materias/",{nivel:$(this).val()},function  (materias) {
+
+                 
+                  var arrayMaterias = [];
+
+                  $.each(materias,function (index, materia) {
+                    
+                    arrayMaterias.push("<li data-nivel=\""+materia.id+"\">"+materia.nombre+"</li>")
+
+                  });
+
+                  $("#tiraMaterias").empty().append(arrayMaterias.join("")).find("li").click(function () {
+                      
+                      $(this).siblings().css({backgroundColor:'#333'})  
+                      $(this).css({backgroundColor:'hsl(212,100%,50%)'})
+                      $materiaClonada =  $(this).clone();                      
+                      $targetsMateria.not(".elegida").attr("class","target");
+
+                  });
+
+                });
+
+              });
+
+
+               //Se consultan los grupos
+              $.getJSON("/grupos/",function  (grupos) {
+
+                var arrayGrupos = [];
+
+                $.each(grupos,function (index, grupo) {
+                  
+                  arrayGrupos.push("<option value=\""+grupo.nombre+"\">"+grupo.nombre+"</option>");
+
+                });
+
+                $("#cmbGrupos").append(arrayGrupos.join("")).change(function () {
+                  
+                  if($(this).val() == -1) return false;
+
+                  var $horarios = $("#dvHorarios").find("table tbody tr")
+
+                  if($(this).val().toLowerCase().indexOf("v") > -1){
+                    $horarios.filter(".matutino").hide();
+                    $horarios.filter(".vespertino").show();
+                  }else{
+                    $horarios.filter(".vespertino").hide();
+                    $horarios.filter(".matutino").show();
+                  }
+
+                })
+
+              });
+
+            });
 
 
             if($(this).data("view") != "situacionAcademica")

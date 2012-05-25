@@ -42,7 +42,7 @@ class Alumnos(models.Model):
 class Dependenciasmateria(models.Model):
     depmiddependencia = models.IntegerField(primary_key=True, db_column='depmIdDependencia') # Field name made lowercase.
     matidmateria = models.ForeignKey(Materias, db_column='matIdMateria') # Field name made lowercase.
-    matidmateriadependiente = models.ForeignKey(Materias, db_column='matIdMateriaDependiente') # Field name made lowercase.
+    matidmateriarequisito = models.ForeignKey(Materias, db_column='matIdMateriaRequisito') # Field name made lowercase.
     mattipodependencia = models.CharField(max_length=135, db_column='matTipoDependencia') # Field name made lowercase.
     class Meta:
         db_table = u'DependenciasMateria'
@@ -119,6 +119,13 @@ class Profesores(models.Model):
     usuidusuario = models.ForeignKey(Usuarios, db_column='usuIdUsuario') # Field name made lowercase.
     class Meta:
         db_table = u'Profesores'
+
+class Profesoresmateria(models.Model):
+    profmidprofesormateria = models.IntegerField(primary_key=True, db_column='profmIdProfesorMateria') # Field name made lowercase.
+    profcedulaprofesor = models.ForeignKey(Profesores, db_column='profCedulaProfesor') # Field name made lowercase.
+    materias_matidmateria = models.ForeignKey(Materias, db_column='Materias_matIdMateria') # Field name made lowercase.
+    class Meta:
+        db_table = u'ProfesoresMateria'
 
 class Temarios(models.Model):
     temidtema = models.CharField(max_length=15, primary_key=True, db_column='temIdTema') # Field name made lowercase.

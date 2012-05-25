@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     (r'^alumnos/situacionAcademica/progresoGeneral/$', 'SAES2GO.apps.alumnos.views.get_progresoGeneral'),
     (r'^alumnos/situacionAcademica/$', 'SAES2GO.apps.alumnos.views.get_situacion_academica'),
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    (r'^materias/$', 'SAES2GO.apps.alumnos.views.get_materias'),
+    (r'^grupos/$', 'SAES2GO.apps.alumnos.views.get_grupos'),
     # Examples:
     # url(r'^$', 'SAES2GO.views.home', name='home'),
     # url(r'^SAES2GO/', include('SAES2GO.foo.urls')),

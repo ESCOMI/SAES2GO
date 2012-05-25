@@ -1,8 +1,9 @@
+@dark-red: #BB3B3F;
+
 html,body{
 
 	margin:0;
 	width:100%;
-	display: table;
 }
 
 body{
@@ -39,16 +40,20 @@ body{
 	margin: 0 auto;	
 	margin-top: -30px;
 	border: 1px solid #DDD;
-	background-color: #BB3B3F;
+	background-color: @dark-red;
 	.box-shadow (0, 0, 10px, 1px, #333);		
  	.border-radius;
 }
 
 
-input[type="text"]:focus, input[type="password"]:focus {
-	.box-shadow (0, 0, 7px, 0, #FFF);		
-	border: 1px solid #50B1FE;
-	outline: none;
+input{
+	
+	&:focus{
+		.box-shadow (0, 0, 7px, 0, #FFF);		
+		border: 1px solid #50B1FE;
+		outline: none;	
+	}
+	
 }
 
 
@@ -61,10 +66,11 @@ select:focus{
 form input[type="text"],input[type="password"],input[type="email"]{
 	width:200px;
 	margin: 10px auto;
+	padding: 0 5px;
 	border: 1px solid #FFF;	
 	height:30px;
-	line-height:30px;
-	font-size:18px;
+	line-height:14px;
+	font-size:14px;
 	.border-radius;	
 
 }
@@ -141,7 +147,6 @@ select{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#e0e0e0',GradientType=0 );
 	background: linear-gradient(top, rgba(252, 252, 252, 1) 0%,rgba(224, 224, 224, 1) 100%);
 
-	width:200px;
 	.border-radius;
 }
 
