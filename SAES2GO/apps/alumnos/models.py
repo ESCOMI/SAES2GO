@@ -74,23 +74,23 @@ class ProfesorMateria(models.Model):
     class Meta:
         db_table = u'ProfesoresMateria'
         verbose_name_plural = 'Materias de Profesor'
-        ordering = ('profesor__nombre','materia__nombre',)
+        ordering = ('profesor__usuario__nombre','materia__nombre',)
 
     def __unicode__(self):
         return self.profesor.nombre+' - '+self.materia.nombre
 
 class TipoHorario(models.Model):
-    tihidtipohorario = models.AutoField(primary_key=True, db_column='tihIdTipoHorario') # Field name made lowercase.
-    tihhorainilunes = models.CharField(max_length=135, db_column='tihHoraIniLunes', blank=True) # Field name made lowercase.
-    tihduracionlunes = models.IntegerField(null=True, db_column='tihDuracionLunes', blank=True) # Field name made lowercase.
-    tihhorainimartes = models.CharField(max_length=135, db_column='tihHoraIniMartes', blank=True) # Field name made lowercase.
-    tihduracionmartes = models.IntegerField(null=True, db_column='tihDuracionMartes', blank=True) # Field name made lowercase.
-    tihhorainimiercoles = models.CharField(max_length=135, db_column='tihHoraIniMiercoles', blank=True) # Field name made lowercase.
-    tihduracionmiercoles = models.IntegerField(null=True, db_column='tihDuracionMiercoles', blank=True) # Field name made lowercase.
-    tihhorainijueves = models.CharField(max_length=135, db_column='tihHoraIniJueves', blank=True) # Field name made lowercase.
-    tihduracionjueves = models.IntegerField(null=True, db_column='tihDuracionJueves', blank=True) # Field name made lowercase.
-    tihhorainiviernes = models.CharField(max_length=135, db_column='tihHoraIniViernes', blank=True) # Field name made lowercase.
-    tihduracionviernes = models.IntegerField(null=True, db_column='tihDuracionViernes', blank=True) # Field name made lowercase.
+    id = models.AutoField(primary_key=True, db_column='tihIdTipoHorario') # Field name made lowercase.
+    horaLunes = models.CharField(max_length=135, db_column='tihHoraIniLunes', blank=True) # Field name made lowercase.
+    duracionLunes = models.IntegerField(null=True, db_column='tihDuracionLunes', blank=True) # Field name made lowercase.
+    horaMartes = models.CharField(max_length=135, db_column='tihHoraIniMartes', blank=True) # Field name made lowercase.
+    duracionMartes = models.IntegerField(null=True, db_column='tihDuracionMartes', blank=True) # Field name made lowercase.
+    horaMiercoles = models.CharField(max_length=135, db_column='tihHoraIniMiercoles', blank=True) # Field name made lowercase.
+    duracionMiercoles = models.IntegerField(null=True, db_column='tihDuracionMiercoles', blank=True) # Field name made lowercase.
+    horaJueves = models.CharField(max_length=135, db_column='tihHoraIniJueves', blank=True) # Field name made lowercase.
+    duracionJueves = models.IntegerField(null=True, db_column='tihDuracionJueves', blank=True) # Field name made lowercase.
+    horaViernes = models.CharField(max_length=135, db_column='tihHoraIniViernes', blank=True) # Field name made lowercase.
+    duracionViernes = models.IntegerField(null=True, db_column='tihDuracionViernes', blank=True) # Field name made lowercase.
     class Meta:
         db_table = u'TiposHorario'
 

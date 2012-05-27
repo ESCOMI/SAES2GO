@@ -5,6 +5,7 @@ from django.core import serializers
 from django.utils import simplejson
 from SAES2GO.apps.alumnos.models import Materia
 from SAES2GO.apps.alumnos.models import Grupo
+from SAES2GO.apps.alumnos.models import TipoHorario
 
 # Create your views here.
 def get_horarios(request):
@@ -62,6 +63,11 @@ def get_grupos(request):
 
     return HttpResponse(grupos, mimetype="application/x-javascript")
 
+def get_tipos_horario(request):
+
+    tiposHorario = serializers.serialize('json', TipoHorario.objects.all(), fields=('id','horaLunes','duracionLunes','horaMartes','duracionMartes','horaMiercoles','duracionMiercoles','horaJueves','duracionJueves','horaViernes','duracionViernes'))
+
+    return HttpResponse(tiposHorario, mimetype="application/x-javascript")
 
 def get_situacion_academica(request):
    

@@ -25,18 +25,28 @@ $(document).ready(function (){
               $targetsMateria = $("#dvHorarios").find("table > tbody > tr > td > div");
 
 
-              $targetsMateria.click(function () {
+              function prepareTargets($targetsMateria){
 
-                if($materiaClonada != null){
-                  $(this).attr("class","elegida").html($materiaClonada.html());
-                  $materiaClonada = null;
-                }
+                $targetsMateria.click(function () {
 
-              }).dblclick(function () {
-                
-                  $(this).html('').attr("class","target");
+                  if($materiaClonada != null){
+                    //alert($materiaClonada.css("backgroundColor"))
+                    $(this).replaceWith($("<div>").attr("data-id-materia",$materiaClonada.attr("data-id-materia")).html( $materiaClonada.html() ).css("backgroundColor",$materiaClonada.css("backgroundColor")).click(function () {
+                  
+                          
+                          buscaHorarioSimilar ($(this),"q");
 
-              });
+                      })
+                    );  
+
+                    buscaHorarioSimilar ($materiaClonada,"a");
+                    
+                  }
+
+                });
+
+              }
+              
 
               // Se consultan las materias filtrando por nivel
               $("#cmbNiveles").change(function (){                  
@@ -50,18 +60,25 @@ $(document).ready(function (){
 
                   $.each(materias,function (index, materia) {
                     
-                    arrayMaterias.push("<li data-nivel=\""+materia.id+"\">"+materia.nombre+"</li>")
+                    arrayMaterias.push("<li data-id-materia=\"mat"+materia.id+"\">"+materia.nombre+"</li>")
 
                   });
 
                   $("#tiraMaterias").empty().append(arrayMaterias.join("")).find("li").click(function () {
                       
-                      $(this).siblings().css({backgroundColor:'#333'})  
-                      $(this).css({backgroundColor:'hsl(212,100%,50%)'})
-                      $materiaClonada =  $(this).clone();                      
-                      $targetsMateria.not(".elegida").attr("class","target");
+                      $(this).siblings().removeClass("over") 
+                      $(this).addClass("over");
+
+
+                      $materiaClonada =  $(this).clone();
+                      $materiaClonada.css("backgroundColor",$(this).css("backgroundColor"))
+                      buscaHorarioSimilar($materiaClonada,"a");                   
+                      $targetsMateria.not("[data-id-materia]").attr("class","target");
 
                   });
+
+
+                  prepareTargets($targetsMateria);
 
                 });
 
@@ -96,6 +113,92 @@ $(document).ready(function (){
                 })
 
               });
+
+              var tiposHorario = [];
+               //Se consultan los tipos de horario validos
+              $.getJSON("/tiposHorario/",function  (horarios) {
+
+                $.each(horarios,function (index, horario) {
+                  var campos = horario.fields;
+                  
+
+                  var arrHorarios = [];
+
+                  arrHorarios.push("h"+campos.horaLunes+"-"+campos.duracionLunes);
+                  arrHorarios.push("h"+campos.horaMartes+"-"+campos.duracionMartes);
+                  arrHorarios.push("h"+campos.horaMiercoles+"-"+campos.duracionMiercoles);
+                  arrHorarios.push("h"+campos.horaJueves+"-"+campos.duracionJueves);
+                  arrHorarios.push("h"+campos.horaViernes+"-"+campos.duracionViernes); 
+                  tiposHorario.push({id:campos.id,horario:arrHorarios});
+
+                });       
+
+              });
+
+
+              var $horarios = $("#dvHorarios table tr");
+
+              function buscaHorarioSimilar (materia,agregarQuitar) {
+
+                
+                var $materiasAgregadas = $horarios.find("div[data-id-materia="+materia.attr("data-id-materia")+"]");
+                
+                if(agregarQuitar=="q")
+                  materia.replaceWith("<div class=\"target\"></div>");
+                //Si se esta quitando la ultima
+                if($materiasAgregadas.size() == 1 && agregarQuitar=="q"){
+                  
+                  $horarios.find("div:not([data-id-materia])").replaceWith("<div class=\"target\"></div>");
+                  prepareTargets($horarios.find(".target"));
+                  return false;
+                }               
+                  
+
+                var arrMateriasAgregadas = ["","","","",""];
+
+                $.each($materiasAgregadas,function () {
+
+                  arrMateriasAgregadas[$(this).parent().index()-1] = $(this).parent().parent().attr("data-hora-inicio")+"-90";
+
+                });
+                
+                var coincidentes = [];
+
+                for (var i = tiposHorario.length - 1; i >= 0; i--) {                  
+                  var coincide = true;
+
+                  for (var j = 0; j < 5; j++) {
+                    if(tiposHorario[i].horario[j] != arrMateriasAgregadas[j] && arrMateriasAgregadas[j]!=""){
+                      coincide = false;
+                      break;
+                    }
+                      
+                  }
+
+                  if(coincide)
+                    coincidentes.push(tiposHorario[i])                    
+                }
+
+                $horarios.find("div:not([data-id-materia])").replaceWith("<div></div>");
+
+                
+                for (var i = coincidentes.length - 1; i >= 0; i--) {
+                  for (var j = 0; j < 5; j++) {
+                    
+                    var hora = coincidentes[i].horario[j].split("-")[0]
+                    $horarios.filter("[data-hora-inicio=\""+hora+"\"]").find("td:nth-child("+(j+2)+") > div:not([data-id-materia])").attr("class","target")
+                      
+                  }                 
+                  
+                };
+                
+
+                 prepareTargets($horarios.find(".target"));
+
+
+                
+                
+              }
 
             });
 
@@ -156,19 +259,19 @@ $(document).ready(function (){
                       var padre = $(this)
 
                       $("#mapaCurricular li").removeAttr("style")
-                      padre.css({backgroundColor:'hsl(212,100%,50%)'})
+                      padre.css({backgroundColor:'#C83F43',color:'#fff'})
 
                       $.each(dependencias,function (index,dependencia) {
 
                         var color_padre = {
-                          tono:212,
+                          tono:358,
                           saturacion:100,
-                          luz:50
+                          luz:60
                         }    
 
-                        var nuevo_color = 'hsl('+color_padre.tono+','+color_padre.saturacion+'%,'+(color_padre.luz+25)+'%)'
+                        var nuevo_color = 'hsl('+color_padre.tono+','+color_padre.saturacion+'%,'+(color_padre.luz+15)+'%)'
                         
-                        $("#mat"+dependencia.materiaRequisito).css({backgroundColor: nuevo_color })
+                        $("#mat"+dependencia.materiaRequisito).css({backgroundColor: nuevo_color,color:'#fff' })
 
                         
                         if(dependencia.tipoDependencia == 'RECOMENDADO')

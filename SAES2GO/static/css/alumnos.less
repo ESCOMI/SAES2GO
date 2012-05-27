@@ -5,6 +5,7 @@
 
 @dark-red: #BB3B3F;
 @light-red: #C83F44;
+@another-red:#C83F43;
 
 
 .box-shadow (@x, @y, @blur, @spread, @color) {
@@ -27,9 +28,8 @@
 }
 
 #dvPerfil img {
-	width:100%;
-	height:130px;
-	background-color: #ccc;
+	background-color: #333;
+	border:10px double #666;
 }
 
 
@@ -129,28 +129,33 @@
 				min-height:50px;
 				height:50px;
 				font-size:10px;	
+				max-width:15%;
 
 				> div.target{
 					
-					border:1px dotted #AAA;
-					height:90%;	
-					width:90%;
-					margin: auto;
+					border:1px dotted #AAA;					
+					margin: 10px;
 					color: #AAA;
-
+					cursor: pointer;
+					height:90%;
 					&:before{
-
 						content:'soltar aqui';
-
 					}
 					
 				}
 
-				> div.elegida{				
-					max-width:80px;
+				> div[data-id-materia]{
+					.border-radius;
+					/*max-width:20px;
+					max-height:20px;
+					overflow: hidden;*/					
+					height:90%;
 					text-align: left;
 					padding: 10px;
+					margin: 10px;
 					cursor: pointer;
+					color: #fff;
+
 				}
 				
 										
@@ -184,23 +189,17 @@
 
 
 #tiraMaterias{
-	font-size:10px;	
-	padding: 0;
+	.listaHorizontal;
+
+	
 	list-style:none;
+	margin:0;
+	padding:0;
 
-	li{	
-		display: inline-block;
-		background-color: #333;
-		width: 80px;
-		height: 50px;
-		padding: 5px;
-		margin: 4px 4px;
-		color: white;
-		border-radius: 5px;
-		vertical-align: middle;
-		cursor: pointer;
+	li.over{
+		background-color: #C83F43;
+		color: #fff;
 	}
-
 }
 
 
@@ -239,20 +238,26 @@ h1{
 
 .listaHorizontal{
 	font-size:10px;
-	margin: 0px auto;
+	margin: 0px auto;	
 	background-color:#fff;
 
 	> li{
 
 		display: inline-block;
-		background-color: hsl(0,0,20%);
+		background-color: #fff;
+		.box-shadow (0, 0, 3px, 0px, #999);
 		width:80px;		
 		height:50px;	
 		padding: 5px;
 		margin: 10px 5px;
-		color: #fff;
-		border-radius:5px;
+		color: #333;
+		.border-radius; 
 		vertical-align: top;
+
+		&.elegida{
+
+			color: #fff;
+		}
 
 
 		.encurso{
@@ -282,13 +287,14 @@ h1{
 		list-style:none;
 		margin:0;
 		padding:0;
+		margin-left: 5px;
 	}
 
 }
 
 #mapaCurricular{
 	>li{
-		.box-shadow (0, 0, 5px, 1px, #ccc);
+		border-color:1px solid #ccc;
 		margin-top: 20px;		
 	}
 }
@@ -298,13 +304,14 @@ h1{
 }
 
 .indicadorNivel{
-	font-size:20px;
+	.border-radius;
+	font-size:18px;
 	width:100%;
-	height:40px;
-	background-color: #eee;
-	line-height:40px;
+	height:30px;
+	background-color: #333;
+	line-height:30px;
 	text-align: center;
-	color: #333;
+	color: #fff;
 	
 }
 /******************************************************************/
