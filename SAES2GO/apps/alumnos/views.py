@@ -6,6 +6,10 @@ from django.utils import simplejson
 from SAES2GO.apps.alumnos.models import Materia
 from SAES2GO.apps.alumnos.models import Grupo
 from SAES2GO.apps.alumnos.models import TipoHorario
+from SAES2GO.apps.alumnos.models import MateriaGrupo
+from datetime import date
+
+
 
 # Create your views here.
 def get_horarios(request):
@@ -43,15 +47,17 @@ def get_materias(request):
 
     for materia in listmaterias:
 
-        materias.append({'id':materia.id,'nombre':materia.nombre})
+        materias.append({'id':materia.id,'nombre':materia.nombre,'horas':materia.horasSemanales})
 
     materias = simplejson.dumps(materias)
 
-    return HttpResponse(materias, mimetype="application/x-javascript")
+    return HttpResponse(materias, mimetype = "application/x-javascript")
 
 def get_grupos(request):
     
-    listgrupos = Grupo.objects.all()
+    turno = request.GET.get('turno', '')
+
+    listgrupos = Grupo.objects.filter(turno = turno)
 
     grupos = []
 
@@ -75,3 +81,30 @@ def get_situacion_academica(request):
     
     html = t.render(Context({}))
     return HttpResponse(html)
+
+def guarda_grupo(request):
+    grupo = request.GET.get('grupo', '')
+    salon = request.GET.get('salon', '')
+
+    fechaActual=date.today()
+
+    materias = simplejson.loads(request.GET['materias'])
+
+    for materia in materias:
+
+        materiagrupo = MateriaGrupo()
+        
+        materiagrupo.materia = Materia.objects.get(id = int(materia.replace("mat","")))
+        materiagrupo.grupo = Grupo.objects.get(nombre = grupo)
+        materiagrupo.lugaresDisponibles = 30
+        materiagrupo.salon = salon
+        materiagrupo.anio = fechaActual.year
+        materiagrupo.semestre = 'A'
+        materiagrupo.tipoHorario = TipoHorario(id= int(materias[materia][0]))
+
+        materiagrupo.save()
+
+    resultado = simplejson.dumps({'mensaje':'Grupo registrado!'})
+
+    return HttpResponse(resultado, mimetype="application/x-javascript")
+

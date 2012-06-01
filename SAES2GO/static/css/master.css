@@ -42,6 +42,18 @@ select:focus {
   border: 1px solid #50B1FE;
   outline: none;
 }
+input[type="text"], input[type="password"], input[type="email"] {
+  width: 200px;
+  margin: 10px auto;
+  padding: 0 5px;
+  border: 1px solid #ccc;
+  height: 30px;
+  line-height: 14px;
+  font-size: 14px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
 form input[type="text"], input[type="password"], input[type="email"] {
   width: 200px;
   margin: 10px auto;

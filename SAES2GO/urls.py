@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     (r'^materias/$', 'SAES2GO.apps.alumnos.views.get_materias'),
     (r'^grupos/$', 'SAES2GO.apps.alumnos.views.get_grupos'),
+    (r'^grupos/guardar/$', 'SAES2GO.apps.alumnos.views.guarda_grupo'),
     (r'^tiposHorario/$', 'SAES2GO.apps.alumnos.views.get_tipos_horario'),
     # Examples:
     # url(r'^$', 'SAES2GO.views.home', name='home'),

@@ -10,6 +10,7 @@ class Materia(models.Model):
     area = models.CharField(max_length=135, db_column='matArea')
     nivel = models.IntegerField(db_column='matNumNivel')
     semestre = models.CharField(max_length=1, db_column='matTipoSemestre')
+    horasSemanales = models.FloatField(db_column='matHorasSemanales')
     class Meta:
         db_table = u'Materias'
         ordering = ('nombre',)        
@@ -80,17 +81,17 @@ class ProfesorMateria(models.Model):
         return self.profesor.nombre+' - '+self.materia.nombre
 
 class TipoHorario(models.Model):
-    id = models.AutoField(primary_key=True, db_column='tihIdTipoHorario') # Field name made lowercase.
-    horaLunes = models.CharField(max_length=135, db_column='tihHoraIniLunes', blank=True) # Field name made lowercase.
-    duracionLunes = models.IntegerField(null=True, db_column='tihDuracionLunes', blank=True) # Field name made lowercase.
-    horaMartes = models.CharField(max_length=135, db_column='tihHoraIniMartes', blank=True) # Field name made lowercase.
-    duracionMartes = models.IntegerField(null=True, db_column='tihDuracionMartes', blank=True) # Field name made lowercase.
-    horaMiercoles = models.CharField(max_length=135, db_column='tihHoraIniMiercoles', blank=True) # Field name made lowercase.
-    duracionMiercoles = models.IntegerField(null=True, db_column='tihDuracionMiercoles', blank=True) # Field name made lowercase.
-    horaJueves = models.CharField(max_length=135, db_column='tihHoraIniJueves', blank=True) # Field name made lowercase.
-    duracionJueves = models.IntegerField(null=True, db_column='tihDuracionJueves', blank=True) # Field name made lowercase.
-    horaViernes = models.CharField(max_length=135, db_column='tihHoraIniViernes', blank=True) # Field name made lowercase.
-    duracionViernes = models.IntegerField(null=True, db_column='tihDuracionViernes', blank=True) # Field name made lowercase.
+    id = models.AutoField(primary_key=True, db_column='tihIdTipoHorario')
+    horaLunes = models.CharField(max_length=135, db_column='tihHoraIniLunes', blank=True)
+    duracionLunes = models.IntegerField(null=True, db_column='tihDuracionLunes', blank=True)
+    horaMartes = models.CharField(max_length=135, db_column='tihHoraIniMartes', blank=True)
+    duracionMartes = models.IntegerField(null=True, db_column='tihDuracionMartes', blank=True)
+    horaMiercoles = models.CharField(max_length=135, db_column='tihHoraIniMiercoles', blank=True)
+    duracionMiercoles = models.IntegerField(null=True, db_column='tihDuracionMiercoles', blank=True)
+    horaJueves = models.CharField(max_length=135, db_column='tihHoraIniJueves', blank=True)
+    duracionJueves = models.IntegerField(null=True, db_column='tihDuracionJueves', blank=True)
+    horaViernes = models.CharField(max_length=135, db_column='tihHoraIniViernes', blank=True)
+    duracionViernes = models.IntegerField(null=True, db_column='tihDuracionViernes', blank=True)
     class Meta:
         db_table = u'TiposHorario'
 
@@ -102,7 +103,7 @@ class MateriaGrupo(models.Model):
     profesor = models.ForeignKey(Profesor, db_column='profCedulaProfesor')
     anio = models.IntegerField(db_column='matgAnio')
     semestre = models.CharField(max_length=3, db_column='matgTipoSemestre')
-    lugaresDisponibles = models.IntegerField(db_column='magtLugaresDisp')
+    lugaresDisponibles = models.IntegerField(db_column='matgLugaresDisp')
     salon = models.IntegerField(db_column='matgSalon')
     tipoHorario = models.ForeignKey(TipoHorario, db_column='tihIdTipoHorario')
     class Meta:
