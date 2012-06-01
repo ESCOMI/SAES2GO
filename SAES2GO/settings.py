@@ -3,6 +3,14 @@ import os,sys
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 DEBUG = True
+
+INTERNAL_IPS = ('127.0.0.1','192.168.1.66')
+
+# Disabled for prod machine
+LOGGING_OUTPUT_ENABLED=False
+LOGGING_LOG_SQL=True
+
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
